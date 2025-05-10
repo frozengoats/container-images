@@ -38,4 +38,4 @@ jobs:
     - name: change path to work location
       run: cd ${{ matrix.item.path }}
     - name: build docker image
-      run: make build
+      run: pwd
