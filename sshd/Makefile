@@ -1,5 +1,5 @@
 VERSION ?= $(shell cat ./VERSION)
-IMAGE := frozengoats/ssh
+IMAGE := frozengoats/sshd
 IMAGE_AND_TAG := $(IMAGE):$(VERSION)
 
 .PHONY: build
