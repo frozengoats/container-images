@@ -33,4 +33,4 @@ jobs:
         item: ${{ fromJson(needs.get-changes.outputs.directories) }}
     steps:
     - name: build docker image
-      run: make build
+      run: cd {{ matrix.item.path }} && make build
