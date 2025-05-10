@@ -2,6 +2,7 @@ FROM alpine:3.21.3
 
 RUN apk update --no-cache && \
   apk add openssh openrc --no-cache
+RUN mkdir -p /etc/config/hostkeys
 
 COPY sshd_config /etc/ssh/sshd_config
 COPY entrypoint.sh /entrypoint.sh

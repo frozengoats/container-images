@@ -1,11 +1,5 @@
 #!/bin/sh
 
-if [ ! -d /etc/config ]
-then
-  echo "no host keys directory, you must provide a persistent mount to /etc/config for host key generation"
-  exit 1
-fi
-
 if [ ! -f /etc/config/hostkeys/ssh_host_rsa_key ]
 then
   # prepare host keys
