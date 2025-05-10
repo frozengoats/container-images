@@ -55,3 +55,9 @@ jobs:
     - if: ${{ steps.version.outputs.on-parent-branch == 'true' }}
       name: publish container images
       run: make publish
+    - uses: frozengoats/github-actions/release@release-v1
+      with:
+        tag-prefix: ${{ matrix.item.name }}-
+        create-release: true
+        create-version-tag: true
+        create-major-version-tag: 'true'
