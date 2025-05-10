@@ -31,7 +31,9 @@ jobs:
     strategy:
       matrix:
         item: ${{ fromJson(needs.get-changes.outputs.directories) }}
-    working-directory: ${{ matrix.item.path }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.item.path }}
     steps:
     - uses: actions/checkout@v4
       with:
