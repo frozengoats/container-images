@@ -34,4 +34,4 @@ jobs:
     - name: display info
       run: |
         echo ${{ matrix.item.name }}
-        echo ${{ maxrix.item.path }}
+        echo ${{ matrix.item.path }}
