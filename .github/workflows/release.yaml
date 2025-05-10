@@ -1,6 +1,6 @@
 name: execute release actions
 permissions:
-  contents: write
+  contents: read,write
 
 on:
   push:
@@ -9,8 +9,6 @@ on:
 
 jobs:
   get-changes:
-    permissions:
-      contents: write
     runs-on: ubuntu-24.04
     name: generate-changed-dir-matrix
     outputs:
