@@ -32,7 +32,5 @@ jobs:
       matrix:
         item: ${{ fromJson(needs.get-changes.outputs.directories) }}
     steps:
-    - name: display info
-      run: |
-        echo ${{ matrix.item.name }}
-        echo ${{ matrix.item.path }}
+    - name: build docker image
+      run: make build
