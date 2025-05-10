@@ -39,4 +39,4 @@ jobs:
       with:
         fetch-depth: 0
     - name: build docker image
-      run: pwd
+      run: make build
