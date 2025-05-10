@@ -1,6 +1,6 @@
 name: execute release actions
 permissions:
-  contents: read|write
+  contents: read
 
 on:
   push:
