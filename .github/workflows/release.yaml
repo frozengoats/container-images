@@ -52,3 +52,6 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+    - if: ${{ steps.version.outputs.on-parent-branch == 'true' }}
+      name: publish container images
+      run: make publish
