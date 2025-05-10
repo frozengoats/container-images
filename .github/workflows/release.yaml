@@ -32,5 +32,10 @@ jobs:
       matrix:
         item: ${{ fromJson(needs.get-changes.outputs.directories) }}
     steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: change path to work location
+      run: cd ${{ matrix.item.path }}
     - name: build docker image
-      run: cd ${{ matrix.item.path }} && make build
+      run: make build
