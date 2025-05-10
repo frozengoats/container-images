@@ -1,7 +1,5 @@
 #!/bin/sh
 
-mkdir -p /etc/config/hostkeys
-
 if [ ! -d /etc/config ]
 then
   echo "no host keys directory, you must provide a persistent mount to /etc/config for host key generation"
