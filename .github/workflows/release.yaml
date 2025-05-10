@@ -31,11 +31,10 @@ jobs:
     strategy:
       matrix:
         item: ${{ fromJson(needs.get-changes.outputs.directories) }}
+    working-directory: ${{ matrix.item.path }}
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - name: change path to work location
-      run: cd ${{ matrix.item.path }}
     - name: build docker image
       run: pwd
