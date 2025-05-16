@@ -44,9 +44,9 @@ jobs:
       with:
         working-directory: ${{ matrix.item.path }}
     - name: build docker image
-      run: VERSION=${{ steps.version.outputs.version-tag }} make build
+      run: VERSION=${{ steps.version.outputs.version-tag }} make -f ../Makefile build
     - name: tag major version of docker image
-      run: VERSION=${{ steps.version.outputs.version-tag-major }} make build
+      run: VERSION=${{ steps.version.outputs.version-tag-major }} make -f ../Makefile build
     - name: login to docker hub
       uses: docker/login-action@v3
       with:
@@ -54,7 +54,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - if: ${{ steps.version.outputs.on-parent-branch == 'true' }}
       name: publish container images
-      run: make publish
+      run: make -f ../Makefile publish
     - uses: frozengoats/github-actions/release@release-v1
       with:
         tag-prefix: ${{ matrix.item.name }}-
