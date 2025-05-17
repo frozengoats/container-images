@@ -61,3 +61,20 @@ jobs:
         create-release: true
         create-version-tag: true
         create-major-version-tag: 'true'
+
+  branch-protection-funnel:
+    runs-on: ubuntu-24.04
+    name: Verify integration tasks
+    needs:
+    - get-changes
+    - publish
+    steps:
+    - name: Integration tasks succeeded
+      if: ${{ !(contains(needs.*.result, 'failure')) }}
+      run: exit 0
+    - name: Integration tasks failed
+      if: ${{ contains(needs.*.result, 'failure') }}
+      run: exit 1
+    - uses: frozengoats/github-actions/release@release-v1
+      with:
+        update-base-tag: true
