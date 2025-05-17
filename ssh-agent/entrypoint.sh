@@ -10,6 +10,6 @@ fi
 
 eval $(ssh-agent)
 chmod 666 ${SSH_AUTH_SOCK}
-touch /complete.done
+touch /complete
 
 sleep infinity
