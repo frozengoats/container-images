@@ -24,4 +24,4 @@ else
 fi
 
 echo "starting sshd and waiting for connections"
-/usr/sbin/sshd -D
+/usr/sbin/sshd -D -e
