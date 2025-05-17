@@ -8,5 +8,10 @@ else
   ssh-agent
 fi
 
-touch /complete
+if [ ! -z $COMPLETION_FILE ]
+then
+  echo "writing completion file"
+  touch $COMPLETION_FILE
+fi
+
 sleep infinity
