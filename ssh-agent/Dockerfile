@@ -5,6 +5,4 @@ RUN apk update --no-cache && \
 
 COPY entrypoint.sh /entrypoint.sh
 
-EXPOSE 22
-
 CMD [ "/entrypoint.sh" ]
